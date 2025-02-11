@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button{
+  margin: 20px;
+  width: 5em; /* Ширина кнопки */
+  height: 3em;
+
+}
+#button2{
+display: none;
+
+}
