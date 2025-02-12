@@ -21,6 +21,7 @@ function App() {
   const [text1, setText1] = useState('write here...')
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
+  const [result, setResult] = useState(0);
 
 
 // function clickHandler(){
@@ -46,6 +47,9 @@ function yearBirth(num){
 }
 function farToCel(num){
 return num - 32;
+ }
+ function handleClick(){
+  setResult(Number(value1)+ Number(value2))
  }
 
 
@@ -91,9 +95,11 @@ return <>
 <p>{text1.length}</p>
 <input value={text} onChange={(event) => setText(event.target.value)}/>
 <p>{farToCel(text)}</p>
-<input value = {value1} onChange={(event) => setValue1(+event.target.value)}></input>
-<input value = {value2} onChange={(event) => setValue2(+event.target.value)}></input>
-<p>Sum: {(value1 + value2)/2}</p>
+<input value = {value1} onChange={(event) => setValue1(event.target.value)}></input>
+<button onClick={() => setResult(Number(value1)+Number(value2))}btn></button>
+<input value = {value2} onChange={(event) => setValue2(event.target.value)}></input>
+<button onClick={() => setResult(Number(value1)*Number(value2))}btn></button>
+<p>result: {result}</p>
 </>
 
 
