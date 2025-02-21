@@ -9,39 +9,23 @@ import { nanoid } from 'nanoid'
 
 
 function App() {
-
-const [num, setNum] = useState();
-const [multiNum, setMultiNum] = useState(0);
-
-function handleClick(event){
-  setNum(event.target.value);
-}
-  
-function numberSum(num){
-  let res = [];
-res = num.split('').map(string => +string).reduce((acc, item) => (acc + item))
-setMultiNum(res);
- }
-
-
-function func(event){
-  handleClick(event);
-  numberSum(num);
-}
-
-
+const [checked1, setChecked1] = useState(true);
+const [checked2, setChecked2] = useState(true);
+const [checked3, setChecked3] = useState(true);
 
 
  
 return <>
-<textarea value = {num} onChange ={func}/>
-<p>{multiNum}</p>
+<label><input type = 'checkbox' checked = {checked1} onChange={() => setChecked1(!checked1)}/>html</label>
+<label><input type = 'checkbox' checked = {checked2} onChange={() => setChecked2(!checked2)}/>css</label>
+<label><input type = 'checkbox' checked = {checked3} onChange={() => setChecked3(!checked3)}/>js</label>
+<p>Вы выбрали:</p>
+<p>{checked1 ? 'html' : ''}</p>
+<p>{checked2 ? 'css' : ''}</p>
+<p>{checked3 ? 'js' : ''}</p>
 
 
 </>
-
-
-
 }
 
 
