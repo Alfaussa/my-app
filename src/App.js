@@ -6,19 +6,19 @@ import { nanoid } from 'nanoid'
 
 
 function App() {
-const [checked, setChecked] = useState(true);
+const [value, setValue] = useState('');
 
 
-let message;
-if(checked) {
-  message = 
-	<h2>Ура, абзац виден!</h2>
-}
 
  
 return <>
-<input type = 'checkbox' checked = {checked} onChange={() => setChecked(!checked)}/>
-<p>{message}</p>
+<select value={value} onChange={(event) => setValue(event.target.value)}>
+  <option>Moscow</option>
+  <option>Istanbul</option>
+  <option>Malmo</option>
+  <option>Paris</option>
+</select>
+<p>Your city:{value}</p>
 
 </>
 }
