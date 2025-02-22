@@ -6,20 +6,30 @@ import { nanoid } from 'nanoid'
 
 
 function App() {
-const [value, setValue] = useState('');
-const texts = ['Moscow', 'Istanbul', 'Malmo', 'Paris'];
+
+const [value, setVAlue] = useState('');
+
+const texts = ['text1', 'text2', 'text3', 'text4', 'text5']
+
 const options = texts.map((text, index) => {
-  return <option key = {index}>{text}</option>
-})
+ return <option key = {index} value = {index} >{text}</option>}
+)
+
 
  
 return <>
-<select value={value} onChange={(event) => setValue(event.target.value)}>
- {options}
+<p>Ваш возраст?</p>
+<select value = {value} onChange={(event) => setVAlue(event.target.value)}>
+{options}
 </select>
-<p>Your city:{value}</p>
+<p>
+		{texts[value]}
+		</p>
 
 </>
+
+
+
 }
 
 
