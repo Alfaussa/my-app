@@ -3,34 +3,46 @@
 import React, {useState} from 'react';
 import { nanoid } from 'nanoid'
 
-
-
 function App() {
 
-const [value, setVAlue] = useState('');
+  const [notes, setNotes] = useState([1, 2, 3]);
 
-const texts = ['text1', 'text2', 'text3', 'text4', 'text5']
+  
+  function getSumArr(arr){
+    let sum = 0;
 
-const options = texts.map((text, index) => {
- return <option key = {index} value = {index} >{text}</option>}
-)
+    for(const elem of arr) {
+      sum += +elem;
+    }
+    return sum;
+  }
+
+  function changeHandler(index, event){
+    setNotes([...notes.slice(0, index),
+      event.target.value, ...notes.slice(index + 1)]);
+  }
+
+  const result = notes.map((note, index) => {
+    return <input
+    key = {index}
+    value = {note}
+    onChange={event => changeHandler(index, event)}
+    ></input>
+  });
+
+  return <>
+  {result}
+  {getSumArr(notes)}
+  </>
+  
+  
+  
+  }
+  
+  
+  export default App;
 
 
- 
-return <>
-<p>Ваш возраст?</p>
-<select value = {value} onChange={(event) => setVAlue(event.target.value)}>
-{options}
-</select>
-<p>
-		{texts[value]}
-		</p>
-
-</>
 
 
 
-}
-
-
-export default App;
