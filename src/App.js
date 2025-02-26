@@ -5,40 +5,28 @@ import { nanoid } from 'nanoid'
 
 function App() {
 
-  const [notes, setNotes] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
 
-  function changeHandler(index, event){
-    setNotes([...notes.slice(0, index), event.target.value, ...notes.slice(index + 1)])
-  }
-
-  function func(arr){
-    let sum = 0;
-    for (const elem of arr){
-      sum  += +elem
-    }
-    return sum/arr.length
-    
-  }
 
   const result = notes.map((note, index) => {
-    return (<input
-    key = {index}
-    value = {note}
-    onChange={event => changeHandler(index, event)}
-    ></input>)
-  });
+    return <li key = {index}>{note}</li>
+  })
 
-
+  function addElem() {
+    let res = [...notes, elem]
+    setNotes(res);
+    setElem('')
+  }
 
   return <>
-  {result}
-  {func(notes)}
+  <input value = {elem} onChange={((event) => setElem(event.target.value))}></input>
+  <button onClick={addElem}>push me</button>
+  <ul>
+    {result}
+  </ul>
   </>
   
-  
-  
   }
-  
   
   export default App;
 
