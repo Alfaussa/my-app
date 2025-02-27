@@ -1,4 +1,4 @@
-
+⊗jsrtPmDtAOp №2//
 
 import React, {useState} from 'react';
 import { nanoid } from 'nanoid'
@@ -9,18 +9,25 @@ function App() {
 
 
   const result = notes.map((note, index) => {
-    return <li key = {index}>{note}</li>
+    return <div> 
+      <li key = {nanoid()} onClick={() => squaredNum(index)}> {note} </li>
+      <button onClick={() => deleteLi(index)}>delete</button>
+      </div>
   })
-
-  function addElem() {
-    let res = [...notes, elem]
-    setNotes(res);
-    setElem('')
+  let copy = Object.assign([], notes);
+  function squaredNum(index) {
+    copy[index] = copy[index] ** 2  ;
+    setNotes(copy);
+  }
+  
+  function deleteLi(index){
+  let copy1 = Object.assign([], notes);
+  copy1.splice(index, 1);
+  setNotes(copy1);
   }
 
   return <>
-  <input value = {elem} onChange={((event) => setElem(event.target.value))}></input>
-  <button onClick={addElem}>push me</button>
+  
   <ul>
     {result}
   </ul>
