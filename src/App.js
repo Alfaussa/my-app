@@ -28,33 +28,48 @@ function App() {
   ];
 
   const [notes, setNotes] = useState(initNotes);
-
+  const [value1, setValue1] = useState('');
+  const [value2, setValue2] = useState('');
+  const [value3, setValue3] = useState('');
 
   const result = notes.map((note) => {
     return  <li key = {note.id} > 
        <span>{note.prop1} </span> 
        <span>{note.prop2} </span> 
        <span>{note.prop3} </span> 
+
+       <button onClick={() => addText(note.id)}>
+				btn
+			</button>
          </li>
       
   })
 
-  const obj = {id: nanoid(), prop1:'new', prop2:'new', prop3:'new'}
+
   
- function addLi(){
-  let copy = Object.assign([], notes);
-  let obj = {id: nanoid(), prop1:'new', prop2:'new', prop3:'new'}
-  copy.push(obj);
-  setNotes(copy)
- }
-  
+function addText(id){
+let copy = Object.assign([], notes)
+copy.forEach(function(note, i, copy){
+  if(note.id === id){
+for(let key in note){
+  setValue1(note.prop1);
+  setValue2(note.prop2);
+  setValue3(note.prop3);
+}
+}
+})
+  }
 
   return <>
   
   <ul>
     {result}
+    <input value = {value1}></input>
+    <input value = {value2}></input>
+    <input value = {value3}></input>
+
   </ul>
-  <button onClick={() => addLi()}></button>
+
   </>
   
   }
