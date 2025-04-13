@@ -8,14 +8,15 @@ import Employee from './Employee';
 import { nanoid } from 'nanoid'
 
 function App() {
+  const personalData = [
+    {id: nanoid(), name: 'Alex', surname: 'Fedor', age: 18},
+    {id: nanoid(), name: 'Alexey', surname: 'Fedorov', age: 28},
+    {id: nanoid(), name: 'Alexandr', surname: 'Fedorenskiy', age: 38},
+  ];
 return <>
- <Product/>
- <User />
- <User />
- <User />
- <Employee name="Alex" surname="alexov" salary="100£" />
- <Employee name="olex" surname="olexov" salary="200£" />
- <Employee name="yalex" surname="yalexov" salary="300£" />
+ 	<User name={personalData[0].name} surname={personalData[0].surname} age={personalData[0].age}/>
+   <User name={personalData[1].name} surname={personalData[1].surname} age={personalData[1].age}/>
+   <User name={personalData[2].name} surname={personalData[2].surname} age={personalData[2].age}/>
  </>
   
   }

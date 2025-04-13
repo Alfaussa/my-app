@@ -1,8 +1,12 @@
 import React from "react";
 
-function User(){
-    return <p>
-Reprehenderit exercitation proident est cupidatat enim. Amet tempor enim est Lorem. Laboris deserunt cupidatat quis ea commodo esse eiusmod minim nulla nisi nisi dolore laborum. Ex quis incididunt enim cupidatat. Do est sit in sit eiusmod laboris anim fugiat et.
-    </p>
+function User({name, surname, age}){
+    return <>
+    <tr>
+        <td>Имя: {name}</td>
+        <td>Фамилия: {surname}</td>
+        <td>Возраст: {age}</td>
+    </tr>
+    </>
 }
 export default User;
