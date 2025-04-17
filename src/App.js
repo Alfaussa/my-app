@@ -16,6 +16,10 @@ function App() {
     {id: nanoid(), name: 'user3', surn: 'surn3', 
       age: 32}, 
   ];
+  const result = users.map(user => {
+    return<User key = {user.id} name = {user.name} surname = {user.surn} age = { user.age}/>
+
+  })
 return <>
  	<User name={users[0].name} surname={users[0].surn} age={users[0].age}/>
    <User name={users[1].name} surname={users[1].surn} age={users[1].age}/>
