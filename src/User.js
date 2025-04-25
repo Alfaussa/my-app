@@ -1,15 +1,12 @@
 import React from "react";
 
-function User({name, surname, age, id, isBanned, toBan}){
+function User({name, surname, age, id, isDataEdit, toggleUser, editUser}){
     return <>
     <tr>
-        <td>Имя: {name}</td>
-        <td>Фамилия: {surname}</td>
-        <td>Возраст: {age}</td>
-        <td>id: {id}</td>
-        <span>{isBanned ? 'Юзер забанен' : ' '}</span>
-        <button onClick={() => toBan(id)}> Забанить</button>
-
+        <td>Имя: {isDataEdit ? <input value ={name} onChange={(event) => editUser(id, 'name', event)}/> : <span>{name}</span> }</td>
+        <td>Фамилия: {isDataEdit ? <input value ={surname} onChange={(event) => editUser(id, 'surn', event)}/> : <span>{surname}</span>}</td>
+        <td>Возраст: {isDataEdit ? <input value ={age} onChange={(event) => editUser(id, 'age', event)}/> : <span>{age}</span>}</td>
+       <button onClick={() => toggleUser(id)}>{isDataEdit ? 'сохранить' : 'редактировать' }</button>
     </tr>
     </>
 }
