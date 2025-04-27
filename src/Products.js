@@ -34,7 +34,7 @@ function Products() {
 			id={prod.id}
 			name  ={prod.name}
 			cost  ={prod.cost}
-
+			catg  ={prod.catg}
 			changeField={changeField}
 
 			/>

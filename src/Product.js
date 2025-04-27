@@ -3,7 +3,7 @@ import ProductField from './ProductField'
 
 function Product({ id, name, cost, catg, changeField}) {
 	return <tr>
-<ProductField id = {id} text={name}
+<ProductField id = {id} text={name} 
 type = 'name' changeField = {changeField}/>
 <ProductField id = {id} text={cost}
 type = 'cost' changeField = {changeField}/>
