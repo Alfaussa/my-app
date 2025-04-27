@@ -1,14 +1,30 @@
 import React from "react";
+import UserField from "./UserField";
 
 function User({name, surname, age, id, isDataEdit, toggleUser, editUser}){
     return <>
     <tr>
-        <td>Имя: 
-            {isDataEdit 
-            ? <input value ={name} 
-            onChange={(event) => editUser(id, 'name', event)}/> : <span>{name}</span> }</td>
-        <td>Фамилия: {isDataEdit ? <input value ={surname} onChange={(event) => editUser(id, 'surn', event)}/> : <span>{surname}</span>}</td>
-        <td>Возраст: {isDataEdit ? <input value ={age} onChange={(event) => editUser(id, 'age', event)}/> : <span>{age}</span>}</td>
+    <td>Имя: <UserField
+        text = {name}
+        type = 'name'
+        id = {id}
+        isDataEdit={isDataEdit}
+        editUser={editUser}/>
+    </td> 
+    <td>Фамилия: <UserField
+        text = {surname}
+        type = 'surn'
+        id = {id}
+        isDataEdit={isDataEdit}
+        editUser={editUser}/>
+    </td> 
+    <td>Возраст: <UserField
+        text = {age}
+        type = 'age'
+        id = {id}
+        isDataEdit={isDataEdit}
+        editUser={editUser}/>
+    </td>       
        <button onClick={() => toggleUser(id)}>{isDataEdit ? 'сохранить' : 'редактировать' }</button>
     </tr>
     </>
