@@ -8,11 +8,12 @@ import Employee from './Employee';
 import { nanoid } from 'nanoid'
 import Users from './Users';
 import Calculator from './Calculator';
+import AcidCalc from './AsidCalc';
 
 function App() {
 
 return  <>
-<Calculator/>
+<AcidCalc/>
 
 </>
 
