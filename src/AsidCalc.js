@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import PHInp from './PHInp.js';
+import PHInp from './PHInp';
 import AcidResult from './acidResult';
 
 function AcidCalc(){
