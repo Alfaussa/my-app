@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import PHInp from './PHInp';
-import AcidResult from './acidResult';
+import AcidResult from './AcidResult';
 
 function AcidCalc(){
 
-	const [pH, setpH] = useState();
+	const [pH, setpH] = useState('');
 
 	function changePH(event){
 		setpH(event.target.value);
