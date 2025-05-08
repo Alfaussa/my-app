@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 
 function getSum(arr) {
 	let res = 0;
-	
 	for (let elem of arr) {
 		res += +elem;
 	}
-	
 	return res;
 }
+
 
 function Calculator() {
 	const [value, setValue] = useState('');
@@ -29,10 +28,12 @@ function Calculator() {
 			
 			// вычисляем сумму заново 
 	} 
+
+   let result = getSum(nums);
 	
 	
 	return <div>
-		<p>{getSum(nums)}</p>
+		<p>{result}</p>
 		<input value={value} onChange={handleChange} 
 			onBlur={handleBlur} /> 
 	</div>;
