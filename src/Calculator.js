@@ -1,22 +1,40 @@
 import React, { useState } from 'react';
 
-import TempInp from './TempInp';
-import Verdict from './Verdict';
 
 
-function Calculator(){
-
-	const[temp, setTemp] = useState(0);
-
-	function changeTemp(event){
-		setTemp(event.target.value);
+function getSum(arr) {
+	let res = 0;
+	
+	for (let elem of arr) {
+		res += +elem;
 	}
-	return <div>
-
-		<TempInp temp ={temp} changeTemp = {changeTemp}/>
-		<Verdict temp ={temp}/>
-
-	</div>
+	
+	return res;
 }
 
+function Calculator() {
+	const [value, setValue] = useState('');
+	const [nums, setNums] = useState([1, 2, 3]);
+	const [sum, setSum] = useState(0); // сумма элементов 
+
+	
+	function handleChange(event) {
+		setValue(event.target.value);
+	}
+	
+	function handleBlur(event) {
+		let nums = [];
+		nums = ([...nums, event.target.value]); // добавляем 
+
+		setSum(getSum([...nums, 
+			event.target.value])); // вычисляем 
+
+	}
+	
+	return <div>
+		<p>{sum}</p>
+		<input onChange={handleChange} onBlur={handleBlur} 
+			/> 
+	</div>;
+}
 export default Calculator;
