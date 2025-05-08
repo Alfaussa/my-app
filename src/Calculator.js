@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-
-
 function getSum(arr) {
 	let res = 0;
 	
@@ -15,26 +13,28 @@ function getSum(arr) {
 function Calculator() {
 	const [value, setValue] = useState('');
 	const [nums, setNums] = useState([1, 2, 3]);
-	const [sum, setSum] = useState(0); // сумма элементов 
-
+	//const [sum, setSum] = useState(0); 
+		// сумма элементов массива nums 
 	
 	function handleChange(event) {
 		setValue(event.target.value);
+		
 	}
 	
 	function handleBlur(event) {
-		let nums = [];
-		nums = ([...nums, event.target.value]); // добавляем 
+		
+		setNums([...nums, event.target.value]); 
+			// добавляем элемент в массив 
 
-		setSum(getSum([...nums, 
-			event.target.value])); // вычисляем 
-
-	}
+			
+			// вычисляем сумму заново 
+	} 
+	
 	
 	return <div>
-		<p>{sum}</p>
-		<input onChange={handleChange} onBlur={handleBlur} 
-			/> 
+		<p>{getSum(nums)}</p>
+		<input value={value} onChange={handleChange} 
+			onBlur={handleBlur} /> 
 	</div>;
 }
 export default Calculator;
