@@ -1,41 +1,36 @@
 import React, { useState } from 'react';
 
-function getSum(arr) {
-	let res = 0;
-	for (let elem of arr) {
-		res += +elem;
-	}
-	return res;
-}
-
 
 function Calculator() {
-	const [value, setValue] = useState('');
-	const [nums, setNums] = useState([1, 2, 3]);
-	//const [sum, setSum] = useState(0); 
-		// сумма элементов массива nums 
+	const [notes, setNotes] = useState([1, 2, 3, 4, 5]); 
+	const [editNum, setEditNum] = useState(null); 
+	const [value, setValue] = useState(''); 
 	
-	function handleChange(event) {
-		setValue(event.target.value);
-		
+	const result = notes.map((note, 
+		index) => { 
+		return <p key={index} 
+			onClick={() => startEdit(index)}> 
+			{note}
+		</p>;
+	});
+	
+	function startEdit(index) {
+		setEditNum(index);
+		setValue(notes[index]); 
+			// пишем текст редактируемого элемента в отдельный стейт 
 	}
 	
-	function handleBlur(event) {
-		
-		setNums([...nums, event.target.value]); 
-			// добавляем элемент в массив 
-
-			
-			// вычисляем сумму заново 
-	} 
-
-   let result = getSum(nums);
-	
+	function changeItem(event) {
+		setValue(event.target.value);
+		setNotes([...notes.slice(0, 
+			editNum), event.target.value,...notes.slice(editNum 
+			+ 1)]); //склеиваем новый массив
+	}
 	
 	return <div>
-		<p>{result}</p>
-		<input value={value} onChange={handleChange} 
-			onBlur={handleBlur} /> 
+		{result}
+		<input value={value} 
+			onChange={changeItem} /> 
 	</div>;
 }
 export default Calculator;
