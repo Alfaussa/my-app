@@ -17,3 +17,7 @@
 	font-weight: bold;
 	color: white;
 }
+
+export const styles = {
+	class1: class1,
+}
