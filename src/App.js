@@ -42,6 +42,7 @@ return  <>
 			<p style={class3}>text</p>
 			<p style={class4}>text</p>
 		</div>
+<Calculator/>
 
 </>
 

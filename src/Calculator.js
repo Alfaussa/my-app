@@ -16,12 +16,12 @@ function Calculator() {
 	
 	function startEdit(index) {
 		setEditNum(index);
-		setValue(notes[index]); 
+		//setValue(notes[index]); 
 			// пишем текст редактируемого элемента в отдельный стейт 
 	}
 	
 	function changeItem(event) {
-		setValue(event.target.value);
+		//setValue(event.target.value);
 		setNotes([...notes.slice(0, 
 			editNum), event.target.value,...notes.slice(editNum 
 			+ 1)]); //склеиваем новый массив
@@ -29,7 +29,7 @@ function Calculator() {
 	
 	return <div>
 		{result}
-		<input value={value} 
+		<input value={notes[editNum]} 
 			onChange={changeItem} /> 
 	</div>;
 }
