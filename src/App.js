@@ -9,46 +9,41 @@ import { nanoid } from 'nanoid'
 import Users from './Users';
 import Calculator from './Calculator';
 //import {styles} from './styles.js'
+import styled from 'styled-components';
 
+const Text1 = styled.p`
+font-style: italic;
+color: brown;
+`;
+const Text2 = styled.p`
+	font-style: italic;
+	color: brown;
+`;
 
+const Text3 = styled.p`
+	background-color: orange;
+	font-weight: bold;
+	color: white;
+`;
 
-
+const Container = styled.div`
+	width: 200px;
+	border: 2px solid brown;
+	padding: 10px;
+	text-align: center;
+`;
 function App() {
 
-const wd1 = '200px';
-const br1 = '2px solid brown';
-const pd1 = '10px';
-const ta1 = 'center';
-const co1 = 'orangered';
-const fw1 = 'bold';
-const fs1 = 'italic';
-const co2 = 'brown';
-const bco1 = 'orange';
-const co3 = 'white';
+
 
 return  <>
 
 
-<div style = {{
-			width: wd1,
-			border: br1,
-			padding: pd1,
-			textAlign: ta1 }}>
-			<p style = {{ color: co1, fontWeight: 
-				fw1 }}> 
-				text
-			</p>
-			<p style = {{ fontStyle: fs1, color: 
-				co2 }}> 
-				text
-			</p>
-			<p style = {{ 
-				backgroundColor: bco1,
-				fontWeight: fw1,
-				color: co3 }}>
-				text
-			</p>
-		</div>
+<Container>
+	<Text1>text</Text1>
+	<Text2>text</Text2>
+	<Text3>tetx</Text3>
+</Container>
 <Calculator/>
 
 </>
