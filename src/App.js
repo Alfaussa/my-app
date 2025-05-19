@@ -8,7 +8,7 @@ import Employee from './Employee';
 import { nanoid } from 'nanoid'
 import Users from './Users';
 import Calculator from './Calculator';
-import {styles} from './styles.js'
+//import {styles} from './styles.js'
 
 
 
@@ -20,10 +20,15 @@ function App() {
 return  <>
 
 
-<div style={styles.class1}>
-			<p style={styles.class2}>text</p>
-			<p style={styles.class3}>text</p>
-			<p style={styles.class4}>text</p>
+<div >
+			<p style = {{
+				color: 'orangered',
+				fontWeight: 'bold'}}>
+					text</p>
+			<p style = {{
+				color: 'red'
+			}}>text</p>
+			<p >text</p>
 		</div>
 <Calculator/>
 
