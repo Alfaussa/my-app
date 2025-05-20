@@ -10,17 +10,10 @@ import Users from './Users';
 import Calculator from './Calculator';
 //import {styles} from './styles.js'
 import styled from 'styled-components';
+import Block from './Block';
 
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 150px;
-`;
 
-const Input = styled.input`
-	margin: 5px;
-	font-size: 18px;
-`;
+
 
 function App() {
 
@@ -29,13 +22,7 @@ function App() {
 return  <>
 
 
-
-		<Container>
-			<Input />
-			<Input placeholder = "name" type = "text" />
-			<Input type = "password"/>
-		</Container>
-	
+<Block/>
 
 </>
 
