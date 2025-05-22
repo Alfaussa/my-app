@@ -1,23 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-
 const Container = styled.div`
-margin: 100px;
+	display: flex;
+	flex-direction: column;
+	width: 150px;
+`;
+const Input = styled.input`
+	background: ${(props) => (props.first ? 'yellow' : 'green')};
 
-`
-const Button = styled.button`
-color: ${(props) => (props.warn ?'red' : 'white')};
-background: ${(props) => (props.warn ? 'wellow' : 'greem')};
-width: 100px;
-height: 40px;
-`
-function Block(){
+	margin: 5px;
+	font-size: 18px;
+`;
 
-    return<Container>
-    <Button disabled>button</Button>
-    <Button warn>button</Button>
-    <Button type="reset">button</Button>
-    </Container>
+function Block() {
+	return (
+		<Container>
+	<Input first = {+true} />
+	<Input placeholder="name" 
+		type="text" /> 
+	<Input type="password" />
+</Container>
+	);
 }
 
 export default Block;
